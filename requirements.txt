@@ -7,7 +7,3 @@ sentencepiece
 sacremoses
 torch>=1.10.0
 prometheus-fastapi-instrumentator
-
-## Evaluation
-# datasets
-# googletrans==4.0.0-rc1

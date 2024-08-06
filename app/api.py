@@ -7,11 +7,12 @@ except ImportError as error:
     raise
 
 from fastapi import FastAPI, Request
+from prometheus_client import Counter, Histogram
 from fastapi.middleware.cors import CORSMiddleware
+from prometheus_fastapi_instrumentator import Instrumentator
+
 
 from app.apps.translator.controllers import translator_router
-from prometheus_fastapi_instrumentator import Instrumentator
-from prometheus_client import Counter, Histogram
 
 
 app = FastAPI(
