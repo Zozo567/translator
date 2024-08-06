@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  fastapi:
+    container_name: 'fastapi'
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    networks:
+      - translator
+  prometheus:
+    container_name: 'prometheus'
+    image: prom/prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - translator  
+  grafana:
+    container_name: 'grafana'
+    image: grafana/grafana
+    volumes:
+      - grafana_data:/var/lib/grafana
+    ports:
+      - "3000:3000"
+    networks:
+      - translator
+
+networks:  
+  translator:
+    driver: bridge
+
+volumes:  
+  prometheus_data:
+  grafana_data:

@@ -1,0 +1,13 @@
+fastapi==0.85.0
+pydantic==1.10.2
+uvicorn==0.18.3
+python-dotenv==0.21.0
+transformers
+sentencepiece
+sacremoses
+torch>=1.10.0
+prometheus-fastapi-instrumentator
+
+## Evaluation
+# datasets
+# googletrans==4.0.0-rc1
