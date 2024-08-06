@@ -10,7 +10,6 @@ class Parameters:
     """ Class which stands for managing application parameters stored in .env file """
 
     __stage_key_in_environment_file = 'STAGE'
-    __hugging_face_token_key = 'HUGGING_FACE_TOKEN'
     __target_languages_key = 'TARGET_LANGUAGES'
     __source_language = 'SOURCE_LANGUAGE'
 
@@ -23,13 +22,11 @@ class Parameters:
         self.application_stage = None if self.application_stage is None else self.application_stage.lower()
         self.source_language = getenv(self.__source_language, None)
         self.target_languages = getenv(self.__target_languages_key, None)
-        self.hugging_face_token = getenv(self.__hugging_face_token_key, None)
 
     def __check_environment_variables_not_none(self):
         environmnets = [
             self.source_language,
             self.application_stage,
-            self.hugging_face_token,
             self.target_languages
         ]
 
@@ -58,7 +55,6 @@ class Parameters:
             "stage": self.application_stage,
             "source_language": self.source_language,
             "target_languages": json.loads(self.target_languages),
-            "hugging_face_token": self.hugging_face_token
         }
 
 

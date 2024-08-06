@@ -7,6 +7,8 @@ This application provides translation services from English to multiple specifie
 - docker-compose
 
 ## Installation
+- Rename .env.sample to .env
+- Run command:
 ```sh
 make start
 ```
